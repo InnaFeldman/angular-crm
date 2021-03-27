@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors'); // If our client is an another domain
 const morgan = require('morgan');// To see what happend to server currently
 const mongoose = require('mongoose');
+const passport = require('passport');
 const authRouts = require('./routs/auth');
 const analyticsRouts = require('./routs/analytic');
 const categoryRouts = require('./routs/category');
@@ -18,6 +19,9 @@ mongoose.connect(keys.mongoURI,{ useNewUrlParser: true })
 mongoose.createConnection(keys.mongoURI, { useNewUrlParser: true })
 .then(()=> console.log("MongoDb connected"))
 .catch(error => console.log(error))
+
+app.use(passport.initialize())
+require('./middleware/passport')(passport);
 
 app.use(morgan('dev'));
 app.use(cors());
