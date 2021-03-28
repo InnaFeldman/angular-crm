@@ -9,6 +9,7 @@ import { AuthLayoutComponent } from './components/shared/layouts/auth-layout/aut
 import { SiteLayoutComponent } from './components/shared/layouts/site-layout/site-layout.component';
 import { SignUpPageComponent } from './components/sign-up-page/sign-up-page.component';
 import { ConsoleLogPipe } from './pipes/console-log.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ConsoleLogPipe } from './pipes/console-log.pipe';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -20,6 +20,10 @@
       </div>
   </div>
   <div class="card-action">
-      <button [disabled]="form.invalid" type="submit" class="modal-action btn waves-effect">Submit</button>
+      <button
+      [disabled]="form.invalid || form.disabled"
+      type="submit"
+      class="modal-action btn waves-effect">
+      Submit</button>
   </div>
 </form>
