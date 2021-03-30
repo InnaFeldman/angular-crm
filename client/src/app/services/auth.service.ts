@@ -9,11 +9,13 @@ import {tap} from 'rxjs/operators';
 })
 export class AuthService {
 
-  private token = null;
+  private token: any = null;
 
   constructor(private http: HttpClient) { }
 
-  signUp(){}
+  signUp(user: User):Observable<User>{
+    return this.http.post<User>('/api/auth/register', user)
+  }
 
   signIn(user: User): Observable<{token: string}>{
          //from backend
@@ -27,20 +29,21 @@ export class AuthService {
       )
     )
   }
-  // setToken(token: string){
-  //   this.token = token;
-  // }
+  setToken(token: string){
+    this.token = token;
+  }
 
-  // getToken():string {
-  //   return this.token
-  // }
+  getToken():string {
+    return this.token
+  }
 
-  // isAuthenticated(): boolean{
-  //   return !!this.token
-  // }
+  isAuthenticated(): boolean{
+    return !!this.token
+  }
 
-  // logout(){
-  //   this,this.setToken(null)
-  //   localStorage.clear()
-  // }
+  logout(){
+    //this.setToken(null)
+    this.setToken('')
+    localStorage.clear()
+  }
 }

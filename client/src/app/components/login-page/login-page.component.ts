@@ -12,7 +12,7 @@ import {AuthService} from '../../services/auth.service';
 export class LoginPageComponent implements OnInit, OnDestroy {
 
   form!: FormGroup;
-  aSub!: Subscription
+  aSub!: Subscription //to prevent memory leak
 
   constructor(private auth: AuthService, private router: Router, private route: ActivatedRoute) { }
 
@@ -51,7 +51,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
 
     this.aSub = this.auth.signIn(user).subscribe(
       //If user loged in this.router.navigate('[/overview]')
-      () => console.log('dfsg'),
+      () => {},
       (error) => {
         console.warn(error);
         this.form.enable();
