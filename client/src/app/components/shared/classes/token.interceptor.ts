@@ -14,12 +14,11 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler):Observable<HttpEvent<any>>{
     // To add authorization in headers
-    const token = localStorage.getItem('auth-token');
 
-    if(token){
+    if(this.auth.isAuthenticated()){
       req = req.clone({//to update current request
         setHeaders: {//to change some headers
-          Authorization: token
+          Authorization: this.auth.getToken()
         }
       })
     }
