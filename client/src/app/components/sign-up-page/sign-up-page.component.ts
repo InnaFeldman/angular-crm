@@ -3,6 +3,7 @@ import { FormGroup, FormControl,Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
+import { MaterialService } from '../shared/classes/material.service';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -49,7 +50,7 @@ export class SignUpPageComponent implements OnInit, OnDestroy {
         this.router.navigate(['/login'], {queryParams: {registered: true}})
       },
       error => {
-        console.warn(error);
+        MaterialService.toast(error.error.message);
         this.form.enable();
       }
     )
