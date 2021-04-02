@@ -50,8 +50,8 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     }
 
     this.aSub = this.auth.signIn(user).subscribe(
-      //If user loged in this.router.navigate('[/overview]')
-      () => {},
+      //If user loged in
+      () => this.router.navigate(['/sign-up']),
       (error) => {
         console.warn(error);
         this.form.enable();

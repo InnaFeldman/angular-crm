@@ -8,17 +8,16 @@ import { AuthService } from "../../../services/auth.service";
 @Injectable({
   providedIn: 'root'
 })
-
 export class AuthGuard implements CanActivate, CanActivateChild {
   constructor(private auth: AuthService,
     private router: Router){}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean>{
-    //If user made registration
+    //If user is registred
     if(this.auth.isAuthenticated()){
       return of(true);
     }else {
-      this.router.navigate('[/login]', {queryParams: {accessDenied: true}})
+      this.router.navigate(['/login'], {queryParams: {accessDenied: true}}) //If someone tryed to enter site without registration
       return of(false);
     }
   }
