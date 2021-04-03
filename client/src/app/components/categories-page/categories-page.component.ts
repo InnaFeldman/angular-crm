@@ -14,10 +14,10 @@ export class CategoriesPageComponent implements OnInit {
   //or
   categories$!: Observable<Category[]>;
 
-  constructor(private categoriesServer: CategoriesService) { }
+  constructor(private categoriesService: CategoriesService) { }
 
   ngOnInit(): void {
-    this.categories$ = this.categoriesServer.fetch();
+    this.categories$ = this.categoriesService.fetch();
 
     //Or
     // this.categoriesServer.fetch().subscribe(

@@ -18,6 +18,8 @@ import { HistoryPageComponent } from './components/history-page/history-page.com
 import { OrderPageComponent } from './components/order-page/order-page.component';
 import { CategoriesPageComponent } from './components/categories-page/categories-page.component';
 import { LoaderComponent } from './components/shared/loader/loader.component';
+import { CategoriesFormComponent } from './components/categories-page/categories-form/categories-form.component';
+import { PositionsFormComponent } from './components/categories-page/categories-form/positions-form/positions-form.component';
 
 
 
@@ -34,7 +36,9 @@ import { LoaderComponent } from './components/shared/loader/loader.component';
     HistoryPageComponent,
     OrderPageComponent,
     CategoriesPageComponent,
-    LoaderComponent
+    LoaderComponent,
+    CategoriesFormComponent,
+    PositionsFormComponent
   ],
   imports: [
     BrowserModule,

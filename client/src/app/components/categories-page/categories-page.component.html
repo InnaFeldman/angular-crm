@@ -12,7 +12,9 @@
       <div class="col s12">
           <div class="collection" *ngIf="categories.length > 0; else empty">
               <a *ngFor="let category of categories"
-                [routerLink]="['/categories', category._id]" class="collection-item">{{category.name}}
+                [routerLink]="['/categories', category._id]" class="collection-item"
+                routerLinkActive="active"
+                >{{category.name}}
               </a>
           </div>
           <ng-template #empty>
