@@ -7,7 +7,7 @@ module.exports.getByCategoryId = async function(req, res){
             category: req.params.categoryId,
             user: req.user.id //User is from middleware->passport.js
         })
-        res.starus(200).json(positions);
+        res.status(200).json(positions);
     }catch(e){
         errorHandler(res, e)
     }
