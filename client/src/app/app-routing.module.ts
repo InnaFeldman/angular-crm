@@ -5,7 +5,9 @@ import { CategoriesFormComponent } from "./components/categories-page/categories
 import { CategoriesPageComponent } from "./components/categories-page/categories-page.component";
 import { HistoryPageComponent } from "./components/history-page/history-page.component";
 import {LoginPageComponent} from "./components/login-page/login-page.component";
+import { OrderCategoriesComponent } from "./components/order-page/order-categories/order-categories.component";
 import { OrderPageComponent } from "./components/order-page/order-page.component";
+import { OrderPositionsComponent } from "./components/order-page/order-positions/order-positions.component";
 import { OverviewPageComponent } from "./components/overview-page/overview-page.component";
 import { AuthGuard } from "./components/shared/classes/auth.quard";
 import { AuthLayoutComponent } from "./components/shared/layouts/auth-layout/auth-layout.component";
@@ -25,7 +27,10 @@ const routes: Routes = [
       {path: 'overview', component: OverviewPageComponent},
       {path: 'analytics', component: AnalyticsPageComponent },
       {path: 'history', component: HistoryPageComponent },
-      {path: 'order', component: OrderPageComponent},
+      {path: 'order', component: OrderPageComponent, children: [
+        {path: '', component: OrderCategoriesComponent},
+        {path: ':id', component: OrderPositionsComponent}
+      ]},
       {path: 'categories', component: CategoriesPageComponent},
       {path: 'categories/new', component: CategoriesFormComponent},
       {path: 'categories/:id', component: CategoriesFormComponent}
